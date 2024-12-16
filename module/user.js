@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
 
     salt: {
         type: String,
-        required: true,
     },
 
     password: {
@@ -51,6 +50,18 @@ userSchema.pre("save", function(next){
     this.password = hashedPassword;
 
     next();
+})
+
+userSchema.static("matchpassword", function(email, password)
+{
+    const user  = this.findOne({email});
+    if(!user)
+    {
+        return new Error({error: "The user does not exist"});
+    }
+    
+    const salt = user.salt;
+    const hashedPassword = user.password;
 })
 
 const User = mongoose.model("user", userSchema);

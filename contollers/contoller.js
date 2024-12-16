@@ -7,7 +7,6 @@ async function newUserSignUp(req, res) {
 
 async function addNewUser(req, res) {
     const { fullName, email, password} =req.body;
-    console.log(req.body)
     await User.create({
         fullName,
         email,
@@ -17,8 +16,15 @@ async function addNewUser(req, res) {
     return res.redirect('/');
 }
 
+async function userSignIn(req,res)
+{
+    const {email, password} = req.body;
+}
+
+
 
 module.exports = {
     newUserSignUp,
     addNewUser,
+    userSignIn
 }
