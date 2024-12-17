@@ -12,10 +12,12 @@
   "author": "Subramanya Talli",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "i": "^0.3.7",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.3",
     "nodemon": "^3.1.7",
     "npm": "^10.9.1",
